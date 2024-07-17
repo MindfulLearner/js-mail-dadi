@@ -32,6 +32,7 @@ document.getElementById('bottone').addEventListener('click', function() {
 				console.log(`email in buffer: ${whiteList}`);
 				if (emailUtente == whiteList[i]) {
 					console.log(`email ${emailUtente} accettata`);
+					i = whiteList.length
 					// js swagger
 					// TRYHARD
 					// allora come procede: si puo' usare un semplice n > n pero' volevo provare qualcosa di strano e creativo dato che oggi abbiamo fatto i gli array
