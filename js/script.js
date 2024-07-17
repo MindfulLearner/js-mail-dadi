@@ -69,17 +69,41 @@ document.getElementById('bottone').addEventListener('click', function() {
 					console.log(`struct josh random num: ${player.josh}`);
 					computer.npc = d6Dice[computerD6Gen];
 					console.log(`struct npc random num: ${computer.npc}`);
-					// -----------------------------------------------------------------------------------------------------------
+					// ----------------------------------------------------------------------------------------------------------
+					// facciamo gli square in cui mettermo numeri
+
+					// scriviamo degli stili per square 
+					let squarePlayer = squareCreate(); 
+					squarePlayer.innerText = player.josh + "josh";
+					// per pc
+					let squareComputer = squareCreate(); 
+					squareComputer.innerText = computer.npc + "computer";
+
+					document.querySelector(".center-layout").appendChild(squarePlayer);
+					document.querySelector(".center-layout").appendChild(squareComputer);
+
+
+					let vincitore = squareCreate();
 					// confrontiamo troviamo il numero piu alto e se pari
 					if (player.josh === computer.npc){
 						// swag
 						console.log("i numeri sono uguali parita")
+						vincitore.innerText = "parita";
+						vincitore.style.backgroundColor = "pink"
+						document.querySelector(".center-layout").appendChild(vincitore);
+
 					} else if (player.josh > computer.npc){
 						// swag
 						console.log("josh e' maggiore piu alto di computer");
+						vincitore.innerText = "josh win";
+						vincitore.style.backgroundColor = "green"
+						document.querySelector(".center-layout").appendChild(vincitore);
 					} else {
-						// pc vince siccome non e player maggior pc e nemmeno uguali trloro quindi
+						// pc vince siccome non e player maggior pc e nemmeno uguali trloro quindi		
 						console.log("compter e' maggiore di josh");
+						vincitore.innerText = "CPU win";
+						vincitore.style.backgroundColor = "red"
+						document.querySelector(".center-layout").appendChild(vincitore);
 					}
 					// -----------------------------------------------------------------------------------------------------------
 				} else {
@@ -101,8 +125,9 @@ document.getElementById('bottone').addEventListener('click', function() {
 			square.style.height = "100px"
 			square.style.display = "flex"
 			square.style.justifyContent = "center"
-			square.style.alignContent = "center"
-
+			square.style.alignItems = "center"
+			square.style.border = "1px dashed black"
+			return square
 		}
 
 	}
